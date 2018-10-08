@@ -66,3 +66,8 @@ after('deploy:failed', 'deploy:unlock');
 
 //before('deploy:symlink', 'database:migrate');
 
+task('test', function () {
+    runLocally("phpunit");
+});
+
+before('deploy', 'test');
